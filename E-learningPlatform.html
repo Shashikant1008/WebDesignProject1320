@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="CSS3_logo_and_wordmark.svg.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: linear-gradient(whitesmoke, rgb(135, 134, 134));
+        }
+        :root{
+            --HEADER-BGCOLOR: #333;
+            --HEADER-COLOR: WHITESMOKE;
+        }
+        html{
+            font-size: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        header{
+            background-color: var(--HEADER-BGCOLOR);
+            color: var(--HEADER-COLOR);
+            padding: 0.5rem 1rem;
+            opacity: 0.7;
+        }
+        .header-title-line{
+            padding: 0.25rem 0.5rem;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+        .menu-button{
+            background-color: transparent;
+            border: none;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .menu-icon,
+        .menu-icon::before,
+        .menu-icon::after{
+            background-color: var(--HEADER-COLOR);
+            width: 40px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            transition: all 0.5s;
+        }
+        .menu-icon::before,
+        .menu-icon::after{
+            content: "";
+
+        }
+        .menu-icon::before{
+            transform: translate(-20px,-12px);
+        }
+        .menu-icon::after{
+            transform: translate(-20px,12px);
+        }
+        :is(header:hover,header:focus-within) .menu-icon{
+            background-color: transparent;
+            transform: rotate(720deg);
+        }
+        :is(header:hover,header:focus-within) .menu-icon::before{
+            /* background-color: transparent; */
+            transform: translateX(-20px) rotate(45deg);
+        }
+        :is(header:hover,header:focus-within) .menu-icon::after{
+            /* background-color: transparent; */
+            transform: translateX(-20px) rotate(-45deg);
+        }
+        :is(header:hover,header:focus-within) nav{
+            /* background-color: transparent; */
+            /* transform: translateX(-20px) rotate(-45deg); */
+            display: block;
+        }
+        nav{
+            background-color: var(--HEADER-BGCOLOR);
+            display: none;
+            transform-origin: top center;
+            animation: showMenu 0.5s ease-in-out forwards;
+
+        }
+        @keyframes showMenu{
+            0%{
+                transform: scaleX(0);
+            }
+            80%{
+                transform: scaleY(1.2);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+        }
+        nav ul{
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        nav li{
+            padding: 0.5rem;
+            border-top: 1px solid var(--HEADER-COLOR);
+        }
+        nav a{
+            display: block;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+        nav a:any-link{
+            color: var(--HEADER-COLOR);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav a:hover,nav a:focus{
+            transform: scale(1.2);
+            transition: all 0.3s;
+        }
+        .left{
+            /* align-items: center; */
+            width: 2000px;
+            display: flex;
+            flex-direction:row-reverse;
+            text-align: justify; 
+            font-family: "Roboto", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            margin-right: 400px;
+        }
+        .right{
+            align-items: center;
+            text-align: left;
+            margin-top: 15px;
+            
+        }
+        .right img{
+            height: 400px;
+            width: 400px;
+            border:5px solid gray;
+            border-radius: 1000px;
+            margin-top: 0;
+            /* margin-right: 1000px; */
+            align-items: center;
+            justify-content: center;
+        }
+        .boxes{
+            position: relative;
+            display: flex;
+            flex-direction: row; 
+            /* justify-content: space-around; */
+        }
+        .box{
+            background-color: #796e6e;
+            color: whitesmoke;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row nowrap;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            text-align: justify;
+            position: relative;
+            border-radius: 5px;
+            /* text-decoration: none; */
+            padding: 15px;
+        }
+        .box2{
+            background-color: #796e6e;
+            color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row nowrap;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            text-align: justify;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        .box3{
+            background-color: #796e6e;
+            color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row nowrap;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            text-align: justify;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        .box4{
+            background-color: #796e6e;
+            color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row nowrap;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            text-align: justify;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        button{
+            padding: 9px 14px;
+            border-radius: 22px;
+            color: whitesmoke;
+            background-color:  rgb(92, 89, 89);
+            font-weight: bold;
+            font-size: 22px;
+            margin: 0 3px; 
+            align-items: center;
+            justify-content: center;
+        }
+        button:hover{
+            color: rgb(92, 89, 89);
+            background-color: whitesmoke;
+        }
+        input {
+            border: 1px solid #ccc;
+            border-radius: 100px;
+            width: 500px;
+            height: 40px;
+            text-align: center;
+        }
+        .Search{
+            display: flex;
+            flex-direction: row-reverse;
+            margin-right: 850px;
+        }
+        .hover{
+            margin-left: 15px;
+            padding: 10px;
+            /* padding-bottom: 0; */
+            border: #333 solid;
+            background-color: rgb(1, 2, 2);
+            border-radius: 25px;
+            text-align: center;
+        }
+        .hover:hover{
+            background-color: #ccc;
+            color: #333;
+            font-weight: 600;
+        }
+        .command{
+            margin-top: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: row; 
+            justify-content: space-around;
+        }
+        .login{
+            margin-left: 850px;
+            background-color: whitesmoke;
+            color: black;
+        }
+        .login:hover{
+            background-color: #333;
+            color: whitesmoke;
+            border: 1px solid black;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="header-title-line">
+            <h1>E-learning site</h1> 
+            <button class="login"><a href="Login.html">Login</a></button>
+            <button class="menu-button">
+                <div class="menu-icon"></div>
+            </button>
+        </section>
+
+        <nav>
+            <ul>
+                <li><a href="E-learningPlatform.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="AnotherContact.html">Contacts</a></li>
+                <li><a href="Services.html">Services</a></li>
+            </ul>
+        </nav>
+        <div class="Search">
+            <p class="hover">Search</p> 
+        <input type="text" placeholder="Which course do you want to like to check"> 
+    </div>
+    </header>
+    
+    <main>
+        <div class="command">
+            <div class="right"><img src="E-learning.jpeg" alt="E-learning platform"><figcaption>Here is my E-learning platform</figcaption></div> 
+        <div class="left">
+            <p>and provide a seamless educational experience for learners.In summary, a professional e-learning website combines effective content delivery with user-friendly features to support learning and skill development.</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            <p style="width: 400px;">It includes various elements such as live or pre-recorded lecture content, videos, quizzes, simulations, games, and other interactive features. These components are designed to enhance the learning process . 
+        </p>     &nbsp;&nbsp;&nbsp;&nbsp;
+        <p>
+            Course authoring tools - Allow instructors and content creators to build online courses with features like multimedia, assessments, interactive elements etc. This content can then be organized into learning paths or programs.
+            </p>  &nbsp;&nbsp;&nbsp;&nbsp;
+            <p style="margin-left: 25px;">integrated set of interactive online services that provides trainers, learners, and others involved in education with information, tools, and resources to support and enhance education delivery and management. One common type of eLearning software is a learning management system (LMS)1. These platforms host and distribute course content, assessments, and tutorials. They create a robust learning experience, similar to a classroom setting, but delivered online or through devices like laptops, desktops, tablets, or mobile phones. When choosing an eLearning platform, consider factors like learning formats, use cases, and any special requirements specific to your industry1. </p>
+            <br> <br> <br> <br>
+            <!-- <p id="element"></p> -->
+        </div>
+    </div>
+        
+        
+        
+        <br>
+        <div class="boxes">
+        <section class="box" style="margin-left: 15px;">
+            <center><p>Administration portal - Interface for administrators to manage users, courses, instructors, enrollments, etc.<a href="https://educationaltechnologyjournal.springeropen.com/articles/10.1186/s41239-020-00216-z">read more...</a>
+            </p></center>
+        </section> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br> <br>
+        <section class="box2"><center><p>Learner portal - The interface where learners can access courses, learning content, assessments, collaborate with other learners etc.
+            <a href="https://link.springer.com/article/10.1007/s10796-020-10097-2">read more...</a>
+        </p></center></section><br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <section class="box3"><center><p>This paper identifies communication tools, administration tools, and course delivery tools as crucial design principles for online learning platforms.
+            <a href="https://link.springer.com/article/10.1007/s10796-020-10097-2">read more...</a>
+        </p></center></section> <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <section class="box4"><center><p>This outline discusses an e-learning web-based interface designed to provide students with access to learning materials and online class recordings. 
+
+            <a href="https://link.springer.com/article/10.1007/s10796-020-10097-2">read more...</a>
+        </p></center></section> 
+    </div>
+        <br> <br>
+        <!-- <button type="submit">Submit</button> -->
+    </main> 
+        <br>
+    <footer> <center>Made &copy; by Shashikant</center></footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed("#element", {
+        strings: ["<i>Web devloper</i> developer.", "&amp; graphic designer."],
+        typeSpeed: 50,
+        });
+    </script>
+</body>
+</html>

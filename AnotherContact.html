@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --HEADER-BGCOLOR: #333;
+            --HEADER-COLOR: WHITESMOKE;
+        }
+        html{
+            font-size: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            min-height: 100vh;
+            /* background: #3952a3; */
+            background-image: linear-gradient(gray,whitesmoke);
+            color: #535556;
+            display: flex;
+            flex-flow: column nowrap;
+            font-family: 'Yantramanav', sans-serif;
+        }
+        header{
+            background-color: var(--HEADER-BGCOLOR);
+            color: var(--HEADER-COLOR);
+            padding: 0.5rem 1rem;
+        }
+        .wrapper{
+          color: gray;
+          background-color: gray;
+        }
+        .header-title-line{
+            padding: 0.25rem 0.5rem;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+        .menu-button{
+            background-color: transparent;
+            border: none;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .menu-icon,
+        .menu-icon::before,
+        .menu-icon::after{
+            background-color: var(--HEADER-COLOR);
+            width: 40px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            transition: all 0.5s;
+        }
+        .menu-icon::before,
+        .menu-icon::after{
+            content: "";
+
+        }
+        .menu-icon::before{
+            transform: translate(-20px,-12px);
+        }
+        .menu-icon::after{
+            transform: translate(-20px,12px);
+        }
+        :is(header:hover,header:focus-within) .menu-icon{
+            background-color: transparent;
+            transform: rotate(720deg);
+        }
+        :is(header:hover,header:focus-within) .menu-icon::before{
+            /* background-color: transparent; */
+            transform: translateX(-20px) rotate(45deg);
+        }
+        :is(header:hover,header:focus-within) .menu-icon::after{
+            /* background-color: transparent; */
+            transform: translateX(-20px) rotate(-45deg);
+        }
+        :is(header:hover,header:focus-within) nav{
+            /* background-color: transparent; */
+            /* transform: translateX(-20px) rotate(-45deg); */
+            display: block;
+        }
+        nav{
+            background-color: var(--HEADER-BGCOLOR);
+            display: none;
+            transform-origin: top center;
+            animation: showMenu 0.5s ease-in-out forwards;
+
+        }
+        @keyframes showMenu{
+            0%{
+                transform: scaleX(0);
+            }
+            80%{
+                transform: scaleY(1.2);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+        }
+        nav ul{
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        nav li{
+            padding: 0.5rem;
+            border-top: 1px solid var(--HEADER-COLOR);
+        }
+        nav a{
+            display: block;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+        nav a:any-link{
+            color: var(--HEADER-COLOR);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav a:hover,nav a:focus{
+            transform: scale(1.2);
+            transition: all 0.3s;
+        }
+        @import url('https://fonts.googleapis.com/css?family=Yantramanav:100,300');
+
+/* ------------- */
+/* GLOBAL STYLES */
+/* ------------- */
+
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.brand {
+  text-align: center;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.brand span {
+  color: #ffffff;
+}
+
+.wrapper {
+  box-shadow: 0 0 20px 0 rgba(57, 82, 163, 0.7);
+}
+
+.wrapper > * {
+  padding: 1em;
+}
+
+/* ------------------- */
+/* COMPANY INFORMATION */
+/* ------------------- */
+
+.company-info {
+  background: #C3C9DD;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.company-info h3,
+.company-info ul {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+/* ------- */
+/* CONTACT */
+/* ------- */
+
+.contact {
+  background: #dcdfea;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* ---- */
+/* FORM */
+/* ---- */
+
+.contact form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.contact form label {
+  display: block;
+}
+
+.contact form p {
+  margin: 0;
+}
+
+.contact form .full {
+  grid-column: 1 / 3;
+}
+
+.contact form button,
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 1em;
+  border: solid 1px #627EDC;
+  border-radius: 4px;
+}
+
+.contact form textarea {
+  resize: none;
+}
+
+.contact form button {
+  background: #627EDC;
+  border: 0;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contact form button:hover,
+.contact form button:focus {
+  background: #3952a3;
+  color: #ffffff;
+  outline: 0;
+  transition: background-color 2s ease-out;
+}
+
+/* ------------- */
+/* MEDIA QUERIES */
+/* ------------- */
+
+@media only screen and (min-width: 700px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .wrapper > * {
+    padding: 2em;
+  }
+
+  .company-info {
+    border-radius: 4px 0 0 4px;
+  }
+
+  .contact {
+    border-radius: 0 4px 4px 0;
+  }
+
+  .company-info h3,
+  .company-info ul,
+  .brand {
+    text-align: left;
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <section class="header-title-line">
+            <h1>Acme Co.</h1>
+            <button class="menu-button">
+                <div class="menu-icon"></div>
+            </button>
+        </section>
+
+        <nav>
+            <ul>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+    
+            <h1 class="brand"><span>Contact me</span></h1>
+        
+            <div class="wrapper">
+        
+                <!-- COMPANY INFORMATION -->
+                <div class="company-info">
+                    <h3>Contact me</h3>
+        
+                    <ul>
+                        <li><i class="fa fa-road"></i> 44 Main Street</li>
+                        <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+                        <li><i class="fa fa-envelope"></i> <a href="gnauniversity.com">@GNA</a></li>
+                    </ul>
+                </div>
+                <!-- End .company-info -->
+        
+                <!-- CONTACT FORM -->
+                <div class="contact">
+                    <h3>E-mail Us</h3>
+        
+                    <form id="contact-form">
+        
+                        <p>
+                            <label>Name</label>
+                            <input type="text" name="name" id="name" required>
+                        </p>
+        
+                        <p>
+                            <label>Company</label>
+                            <input type="text" name="company" id="company">
+                        </p>
+        
+                        <p>
+                            <label>E-mail Address</label>
+                            <input type="email" name="email" id="email" required>
+                        </p>
+        
+                        <p>
+                            <label>Phone Number</label>
+                            <input type="text" name="phone" id="phone">
+                        </p>
+        
+                        <p class="full">
+                            <label>Message</label>
+                            <textarea name="message" rows="5" id="message"></textarea>
+                        </p>
+        
+                        <p class="full">
+                            <button type="submit">Submit</button>
+                        </p>
+        
+                    </form>
+                    <!-- End #contact-form -->
+                </div>
+                <!-- End .contact -->
+        
+            </div>
+            <!-- End .wrapper -->
+        </div>
+        <!-- End .container -->
+    </main>
+</body>
+</html>
